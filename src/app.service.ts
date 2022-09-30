@@ -8,12 +8,16 @@ export class AppService {
   @Cron('* * * * * *', { name: 'RNGTask' })
   getNotificationsAlarm() {
     const powerNumber = 10 ** 16;
+    const time = new Date();
+    time.setHours(time.getHours() + 9);
+    const nowTime = time.toISOString().replace('T', ' ').substring(0, 19);
     [...new Array(64)].map((_, idx) => {
       const randomNumber = String(
         Math.floor(Math.random() * powerNumber),
       ).padEnd(32, '0');
       const topic = 'notification_channel';
       this.client.emit(`${topic}${idx}`, {
+        timestamp: nowTime,
         device: idx,
         topic: topic + idx,
         data: randomNumber,
