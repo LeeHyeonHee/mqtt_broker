@@ -23,10 +23,5 @@ export class AppService {
         data: randomNumber,
       });
     });
-    return 1;
-  }
-
-  getHello(): string {
-    return 'Hello World!';
   }
 }
