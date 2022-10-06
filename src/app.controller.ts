@@ -23,16 +23,5 @@ export class AppController {
         data: randomNumber,
       });
     });
-    return 1;
-  }
-
-  @Get('dmddo')
-  getDmddo() {
-    const dmddoTopic = 'dmddo';
-    const dmddoMsg = this.client.send(dmddoTopic, {
-      topic: dmddoTopic,
-      data: 'dmddo!!',
-    });
-    return dmddoMsg;
   }
 }

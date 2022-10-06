@@ -1,6 +1,6 @@
 import { ClientProxy } from '@nestjs/microservices';
 import { Cron } from '@nestjs/schedule';
-import { Controller, Inject, Injectable } from '@nestjs/common';
+import { Inject } from '@nestjs/common';
 
 export class AppService {
   constructor(@Inject('MQTT_SERVICE') private client: ClientProxy) {}
